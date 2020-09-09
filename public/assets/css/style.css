@@ -10,6 +10,40 @@ body {
   justify-content: center;
 }
 
+#navbar {
+  background:#333;
+  color:#fff;
+  overflow:auto;
+}
+
+
+#navbar a {
+  color:#fff;
+}
+
+
+#navbar h1 {
+  float:left;
+  padding-top:20px;
+}
+
+
+#navbar ul {
+  list-style:none;
+  float:right;
+}
+
+
+#navbar ul li {
+  float:left;
+}
+
+#navbar ul li {
+  display:block;
+  padding: 20px;
+  text-align:center;
+}
+
 .main-box {
   display: flex;
   flex-direction: column;
@@ -150,4 +184,12 @@ body {
     grid-template-columns: 1fr;
     justify-items: center;
   }
+}
+
+
+#main-footer {
+  text-align:center;
+  background:#444;
+  color:#fff;
+  padding: 20px;
 }
