@@ -44,8 +44,8 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
           sed consequuntur ullam temporibus provident repudiandae!
         </p>
-        <div class="key">
-          <img src="{{ asset('assets/images/key-3.jpg') }}" alt="" />
+        <div class="user">
+          <img src="{{ asset('assets/images/user-3.jpg') }}" alt="" />
           <div class="key-info">
             <h5>{{ $key->fname }}</h5>
             <small>23 Dec 2019</small>
