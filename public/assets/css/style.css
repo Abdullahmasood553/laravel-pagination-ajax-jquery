@@ -8,8 +8,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh !important;
-  overflow-y: hidden;
 }
 
 .main-box {
@@ -128,6 +126,23 @@ body {
 
 .select-container select:focus {
   outline: none;
+}
+
+
+.pagination {
+  display: flex;
+  list-style: none;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
 }
 
 @media (max-width: 940px) {

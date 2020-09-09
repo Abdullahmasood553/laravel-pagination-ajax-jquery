@@ -7,8 +7,11 @@ use App\User;
 
 class HomeController extends Controller
 {
-    public function index() {
-        $users = User::all();
-        return view('home', compact('users', $users));
+    public function index(Request $request) {
+        // $users = User::all();
+        // return view('home', compact('users', $users));
+        $users = User::getUsers();
+        return view('home')->with(['users' => $users]);
+
     }
 }
