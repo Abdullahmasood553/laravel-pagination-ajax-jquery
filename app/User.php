@@ -39,8 +39,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function getUsers() {
+
+    public function getFullNameAttribute($value)
+    {
+        $fullName = ucfirst($this->fname) . ' ' . ucfirst($this->lname);
+        if (strlen($fullName) <= 20) {
+            return $fullName;
+        } else {
+            return substr($fullName, 0, 20) . '...';
+        }
+    }
+
+    public static function getUsers($search_keyword) {
         $users = DB::table('users')->where('users.type', GlobalConstants::USER_TYPE_FRONTEND);
+
+        if ($search_keyword && !empty($search_keyword)) {
+            $users->where(function ($q) use ($search_keyword) {
+                $q->where('users.fname', 'like', "%{$search_keyword}%")
+                    ->orWhere('users.lname', 'like', "%{$search_keyword}%");
+            });
+        }
+      
         return $users->paginate(PER_PAGE_LIMIT);
     }
 }

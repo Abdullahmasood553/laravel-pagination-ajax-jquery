@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 <body>
-
+    @include('inc.header')
   <div class="main-box">
-      @include('inc.header')
       @yield('content')
-      @include('inc.footer')
   </div>
+  @include('inc.footer')
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     @stack('scripts')

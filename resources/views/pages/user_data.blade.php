@@ -7,16 +7,19 @@
       </div>
       <div class="card-body">
         <span class="tag tag-pink">{{ $key->type }}</span>
-        <h4>Lorem ipsum dolor sit amet consectetur adipisicing.</h4>
+        <h4>{{ $key->email }}</h4>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
-          sed consequuntur ullam temporibus provident repudiandae!
+          {{ $key->address }}
         </p>
         <div class="user">
+          @php
+          $user=App\User::find($key->id)
+          @endphp
           <img src="{{ asset('assets/images/user-3.jpg') }}" alt="" />
           <div class="key-info">
-            <h5>{{ $key->fname }}</h5>
-            <small>23 Dec 2019</small>
+            <h5>{{ $user['fullname'] }}</h5>
+            <small>{{ date('d.m.Y H:i:s', strtotime($key->created_at)) }}</small>
+      
           </div>
         </div>
       </div>

@@ -19,12 +19,20 @@
 					var page = $(this).attr('href').split('page=')[1];
           getMoreUsers(page);
         });
+
+        $('#search').on('keyup', function () {
+					$value = $(this).val();
+					getMoreUsers(1);
+				});
   });
 
 
   function getMoreUsers(page) {
     $.ajax({
       type: "GET",
+      data: {
+						'search_query': search
+					},
       url: "{{ route('user.get-more-users') }}" + "?page=" + page,
       success:function(data) {
           $('#users_data').html(data);

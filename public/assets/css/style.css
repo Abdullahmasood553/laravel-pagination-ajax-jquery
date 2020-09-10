@@ -5,9 +5,6 @@
 body {
   background-color: #f7f8fc;
   font-family: "Open sans" sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #navbar {
@@ -19,6 +16,7 @@ body {
 
 #navbar a {
   color:#fff;
+  text-decoration: none;
 }
 
 
@@ -42,6 +40,11 @@ body {
   display:block;
   padding: 20px;
   text-align:center;
+}
+
+
+.logo {
+  margin-left:10px;
 }
 
 .main-box {
@@ -76,12 +79,11 @@ body {
 }
 #search {
   width: 100%;
-  border-radius: 10px;
   padding: 10px 15px;
   font-size: 18px;
   color: #222;
   outline: none;
-  border: 1px solid #222;
+  border: 1px solid #000;
 }
 
 #search:focus {

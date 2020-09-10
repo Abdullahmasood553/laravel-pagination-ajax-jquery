@@ -1,3 +1,3 @@
 <div class="container-1">
-    <input type="text" placeholder="Enter Text" id="search" />
+    <input type="text" placeholder="Search..." id="search" />
 </div>
