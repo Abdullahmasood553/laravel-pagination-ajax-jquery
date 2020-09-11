@@ -20,14 +20,18 @@
           getMoreUsers(page);
         });
 
+
+
         $('#search').on('keyup', function () {
 					$value = $(this).val();
+          console.log($value);
 					getMoreUsers(1);
 				});
   });
 
 
   function getMoreUsers(page) {
+    var search = $("#search").val();
     $.ajax({
       type: "GET",
       data: {

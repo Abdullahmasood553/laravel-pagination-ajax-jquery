@@ -58,8 +58,7 @@ class User extends Authenticatable
                 $q->where('users.fname', 'like', "%{$search_keyword}%")
                     ->orWhere('users.lname', 'like', "%{$search_keyword}%");
             });
-        }
-      
+        }  
         return $users->paginate(PER_PAGE_LIMIT);
     }
 }
