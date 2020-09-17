@@ -50,8 +50,8 @@ class User extends Authenticatable
         }
     }
 
-    public static function getUsers($search_keyword) {
-        $users = DB::table('users')->where('users.type', GlobalConstants::USER_TYPE_FRONTEND);
+    public static function getUsers($search_keyword, $country, $sort_by, $range) {
+        $users = DB::table('users');
 
         if ($search_keyword && !empty($search_keyword)) {
             $users->where(function ($q) use ($search_keyword) {
@@ -59,6 +59,25 @@ class User extends Authenticatable
                     ->orWhere('users.lname', 'like', "%{$search_keyword}%");
             });
         }  
+
+        if ($country && $country != GlobalConstants::ALL) {
+            $users = $users->where('users.country', $country);
+        }
+
+        if ($sort_by) {
+            $sort_by = lcfirst($sort_by);
+     
+            if ($sort_by == GlobalConstants::USER_TYPE_FRONTEND) {
+                $users = $users->where('users.type', $sort_by);
+            } else if ($sort_by == GlobalConstants::USER_TYPE_BACKEND) {
+                $users = $users->where('users.type', $sort_by);
+            } 
+        }
+
+        if ($range && $range != GlobalConstants::ALL) {
+            $users = $users->where('users.salary', $range);
+        }
+
         return $users->paginate(PER_PAGE_LIMIT);
     }
 }

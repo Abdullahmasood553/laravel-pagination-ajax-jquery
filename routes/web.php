@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index');
 
 
-Route::get('user.get-more-users', 'HomeController@getMoreUsers')->name('user.get-more-users');
+Route::get('user.get-more-users', 'HomeController@getMoreUsers')->name('users.get-more-users');
 
